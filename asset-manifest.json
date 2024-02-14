@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/TIK-TOC-TAE-GAME/static/css/main.132b4c85.css",
+    "main.js": "/TIK-TOC-TAE-GAME/static/js/main.014cdc0e.js",
+    "static/js/592.4e06568c.chunk.js": "/TIK-TOC-TAE-GAME/static/js/592.4e06568c.chunk.js",
+    "static/media/bg-pattern-dark.png": "/TIK-TOC-TAE-GAME/static/media/bg-pattern-dark.f2c6e30a2a887881a35c.png",
+    "index.html": "/TIK-TOC-TAE-GAME/index.html",
+    "main.132b4c85.css.map": "/TIK-TOC-TAE-GAME/static/css/main.132b4c85.css.map",
+    "main.014cdc0e.js.map": "/TIK-TOC-TAE-GAME/static/js/main.014cdc0e.js.map",
+    "592.4e06568c.chunk.js.map": "/TIK-TOC-TAE-GAME/static/js/592.4e06568c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.132b4c85.css",
+    "static/js/main.014cdc0e.js"
+  ]
+}
