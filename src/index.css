@@ -1,13 +1,366 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+#root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-family: "Roboto Slab", serif;
+  line-height: 1.5;
+  background-image: url(../public/bg-pattern-dark.png);
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(
+    255,
+    162,
+    0,
+    0.838
+  ); /* Adjust the last value to control opacity */
+  z-index: -1;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  background-color: transparent;
+}
+#header {
+  z-index: 1;
+  margin-top: 10px;
+  height: auto;
+  gap: 10px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#header h1 {
+  font-family: "Ultra", serif;
+  margin: 10px;
+}
+
+#header img {
+  width: 120px;
+  height: 120px;
+  min-width: 100px;
+  min-height: 100px;
+  filter: drop-shadow(20px 20px 30px rgb(0, 0, 0));
+  align-self: center;
+}
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+  height: 25rem;
+  background-color: #231f1f;
+  color: aliceblue;
+  border-radius: 5px;
+  position: relative;
+}
+
+#Player_detail_container {
+  width: 90%;
+  padding: 1.8rem;
+}
+.players_order_list {
+  /* margin: 10px 0px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.players_list {
+  display: flex;
+  gap: 1.5rem;
+  font-size: x-small;
+  padding: 10px;
+}
+.players {
+  display: flex;
+  gap: 1rem;
+}
+.player_Name {
+  width: 5rem;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.player_Name_input {
+  width: 5rem;
+  background-color: #292828;
+  color: white;
+  border: none;
+  font-size: small;
+  text-align: center;
+}
+#button {
+  width: 2rem;
+  background-color: #00000000;
+  color: rgb(255, 238, 0);
+  border: none;
+  font-size: small;
+}
+input[type="text"] {
+  animation: myAnimation 2s alternate-reverse linear infinite;
+}
+
+@keyframes myAnimation {
+  0% {
+    transform: scale(1);
+    
+  }
+  50% {
+    transform: scale(1.1);
+    
+  }
+  100% {
+    transform: scale(1);
+   
+  }
+}
+
+.game_board {
+  margin-top: 10px;
+
+  display: grid;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.game_board_list {
+  list-style: none;
+}
+
+.game_board_list_ol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.game_board_list_ol_li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_board_list_ol_li_button {
+  background-color: rgb(159, 159, 117);
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  font-family: "Signika", sans-serif;
+  font-size: 3rem;
+  color: rgb(0, 0, 0);
+}
+#active {
+  border: 1px solid yellow;
+  
+}
+.footer_ol_li {
+  display: flex;
+}
+
+.footer_ol {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: small;
+  color: aliceblue;
+}
+.footer_squareAllDetail {
+  width: 50%;
+  height: 78.5px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #231f1f;
+}
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: #655b5bf5;
+  color: rgba(255, 255, 0, 0.811);
+  animation: GameOverAnimation 0.3s alternate ease-in-out ;
+}
+.game-over button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color: #ff6600;
+ border: none;
+  color: white;
+}
+.game-over button:hover {
+  background-color: #ffea00;
+  color: rgb(0, 0, 0);
+  box-shadow: 5px 5px 15px  yellow,-5px -5px 20px  yellow;
+}
+
+@keyframes GameOverAnimation
+{
+  0%{
+    transform: scale(0.2);
+    opacity: 0.2;
+  }
+  25%{
+    transform: scale(0.3);
+    opacity: 0.3;
+  }
+  50%{
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  75%{
+    transform: scale(0.7);
+    opacity: 0.7;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+@media screen and (min-width: 360px) and (max-width: 480px) {
+  #main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 95%;
+    height: 20rem;
+    gap: 10px;
+    background-color: #231f1f;
+    color: aliceblue;
+    border-radius: 5px;
+  }
+  #header {
+    z-index: 1;
+    margin-top: 30px;
+    height: auto;
+    gap: 10px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #Player_detail_container {
+    width: 90%;
+    padding: 0.5rem;
+  }
+  .game_board_list_ol_li_button {
+    background-color: rgb(165, 165, 47);
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .players_order_list {
+    /* margin: 10px 0px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .footer_ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: x-small;
+  }
+  .footer_squareAllDetail {
+    width: 95%;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #231f1f;
+  }
+
+  #root{
+    margin-bottom: 90px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 786px) {
+  #main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    height: 20rem;
+    gap: 10px;
+    background-color: #231f1f;
+    color: aliceblue;
+    border-radius: 5px;
+  }
+  #Player_detail_container {
+    width: 90%;
+    padding: 0.5rem;
+  }
+  .game_board_list_ol_li_button {
+    background-color: rgb(165, 165, 47);
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .players_order_list {
+    /* margin: 10px 0px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .footer_ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: small;
+  }
+  .footer_squareAllDetail {
+    width: 70%;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #231f1f;
+  }
 }
